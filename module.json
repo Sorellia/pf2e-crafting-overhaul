@@ -1,0 +1,104 @@
+{
+	"id": "pf2e-crafting-overhaul",
+	"title": "PF2e Complete Crafting Overhaul",
+	"description": "A compendium module for my homebrew crafting system overhaul, including feats and actions to replace the base game versions.",
+	"authors": [
+		{
+			"name": "Airwolf"
+		}
+	],
+	"version": "1.0",
+	"compatibility": {
+		"minimum": "11",
+		"verified": "11"
+	},
+	"esmodules": [
+		"scripts/config.js"
+	],
+	"styles": [
+		"styles/projects.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"relationships": {
+		"systems": [
+			{
+				"id": "pf2e",
+				"type": "system",
+				"manifest": "https://github.com/foundryvtt/pf2e/releases/latest/download/system.json",
+				"compatibility": {
+					"minimum": "4.0.6"
+				}
+			}
+		]
+	},
+	"flags": {
+		"pf2e-crafting-overhaul": {
+			"pf2e-homebrew": {
+				"featTraits": {
+					"bonus-craft": {
+						"label": "Bonus Craft",
+						"description": "These feats allow a character to create an additional item (or batch of items) whenever they spend a Downtime Phase to Craft. Some of these feats allow characters to also Craft extra items during Daily Preparations if they can provide the adequate reagents. A character may only benefit from one Bonus Crafting feat during a single Downtime Phase or Daily Preparation, unless the feat states otherwise."
+					},
+					"master-crafting": {
+						"label": "Master Crafting",
+						"description": "Some Crafting Feats have the Master Crafting trait. These feats represent the character's particular niche and their area of expertise. A character may only have one Master Crafting feat at a time, unless otherwise specified."
+					}
+				},
+				"equipmentTraits": {
+					"reagent": {
+						"label": "Reagent",
+						"description": "This item is a reagent of some description; perhaps it comes from a mine and is potent orichalcum, or it is the trachea of a red dragon. Either way, reagents have an elemental trait, a gp value, and can be used in the crafting process to substitute for a character's gold."
+					}
+				}
+			}
+		}
+	},
+	"packFolders": [
+		{
+			"name": "Complete Crafting Overhaul",
+			"sorting": "a",
+			"packs": [
+				"cco-effects",
+				"cco-actions",
+				"cco-feats",
+				"cco-items"
+			]
+		}
+	],
+	"packs": [
+		{
+			"label": "CCO - Effects",
+			"name": "cco-effects",
+			"type": "Item",
+			"system": "pf2e",
+			"path": "packs/cco-effects"
+		},
+		{
+			"label": "CCO - Actions",
+			"name": "cco-actions",
+			"type": "Item",
+			"system": "pf2e",
+			"path": "packs/cco-actions"
+		},
+		{
+			"label": "CCO - Feats",
+			"name": "cco-feats",
+			"type": "Item",
+			"system": "pf2e",
+			"path": "packs/cco-feats"
+		},
+		{
+			"label": "CCO - Items",
+			"name": "cco-items",
+			"type": "Item",
+			"system": "pf2e",
+			"path": "packs/cco-items"
+		}
+	]
+}

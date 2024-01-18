@@ -1,0 +1,8 @@
+2024/01/15-19:25:24.312 52cc Recovering log #868
+2024/01/15-19:25:24.361 52cc Delete type=0 #868
+2024/01/15-19:25:24.361 52cc Delete type=3 #866
+2024/01/15-19:26:25.998 396c Level-0 table #873: started
+2024/01/15-19:26:25.998 396c Level-0 table #873: 0 bytes OK
+2024/01/15-19:26:26.018 396c Delete type=0 #871
+2024/01/15-19:26:26.018 396c Manual compaction at level-0 from '!items!35EGBDTiST8O5Hv6' @ 72057594037927935 : 1 .. '!items!yc29jVlOebYBhbab' @ 0 : 0; will stop at (end)
+2024/01/15-19:26:26.018 396c Manual compaction at level-1 from '!items!35EGBDTiST8O5Hv6' @ 72057594037927935 : 1 .. '!items!yc29jVlOebYBhbab' @ 0 : 0; will stop at (end)

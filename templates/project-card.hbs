@@ -1,0 +1,21 @@
+<div class="pf2e chat-card weapon-card" data-actor-id="{{actorID}}" data-project-id="{{UUID}}">
+    <header class="card-header flexrow">
+        <img src="{{itemImg}}" title="{{localize "PF2E-CCO.CraftCard.ProjectTitle" project=itemName}}" />
+        <h3>{{localize "PF2E-CCO.CraftCard.ProjectTitle" project=itemName}}</h3>
+    </header>
+
+    <div class="card-content">
+        {{{itemDesc}}}
+    </div>
+
+    <div class="card-content">
+        {{localize "PF2E-CCO.CraftCard.Desc"}}
+    </div>
+
+    <footer class="card-footer">
+        <span>{{localize "PF2E-CCO.CraftCard.Footer.BatchSize" batchSize=batchSize}}</span>
+        <span>{{localize "PF2E-CCO.CraftCard.Footer.CurrentValue" currentValue=currentValue}}</span>
+        <span>{{localize "PF2E-CCO.CraftCard.Footer.Price" price=price}}</span>
+        <span>{{localize "PF2E-CCO.CraftCard.Footer.Completion" completion=completion}}</span>
+    </footer>
+</div>

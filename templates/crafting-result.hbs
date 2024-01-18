@@ -1,0 +1,13 @@
+<div class="pf2e chat-card" data-cco-progress="{{progressMade}}" data-project-uuid="{{projectUuid}}", data-actor="{{actor}}">
+    <div class="card-buttons">
+        {{#if progress}}
+            <button type="button" data-action="progress-cco-project" class="cco-progress-chat-button">{{localize "PF2E-CCO.CraftingResult.Progress" progress=progressMade}}</button>
+        {{else}}
+            <button type="button" data-action="ruin-cco-project" class="cco-progress-chat-button">{{localize "PF2E-CCO.CraftingResult.Deduct" progress=progressMade}}</button>
+        {{/if}}
+    </div>
+
+    <footer class="card-footer">
+        <span>{{localize "PF2E-CCO.CraftCard.Footer.PostCraft" overallCost=overallCost progressCost=progressCost rushCost=rushCost}}</span>
+    </footer>
+</div>

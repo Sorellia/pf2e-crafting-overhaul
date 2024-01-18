@@ -1,0 +1,50 @@
+<li class="known-formulas item-container" data-container-type="CCOProjects" id="cco-projects">
+    <div class="action-header">
+        <h3 class="item-name hide-container-toggle title">
+            {{localize "PF2E-CCO.CharSheet.ProjectHeader"}}
+        </h3>
+    </div>
+    <ol class="directory-list item-list formula-list">
+        <li class="formula-level-header formula-header cco-project-header">
+            <div class="level-name flexrow">
+                <h3>{{localize "PF2E-CCO.CharSheet.NameCol"}}</h3>
+            </div>
+            <div class="formula-quantity-header">
+                {{localize "PF2E-CCO.CharSheet.QuantityCol"}}
+            </div>
+            <div class="formula-quantity-header">
+                {{localize "PF2E-CCO.CharSheet.ControlsCol"}}
+            </div>
+        </li>
+        {{#each projects as |project|}}
+            <li class="item formula-item cco-project-item" data-formula-lvl="{{lvl}}" data-project-id="{{project.projectUuid}}" data-item-id="{{project.itemUuid}}" data-is-formula="true">
+                <div class="item-name rollable">
+                    <div class="item-image">
+                        <img class="item-icon" src="{{project.img}}" alt="{{project.name}}">
+                    </div>
+                    <h4>{{project.name}}</h4>
+                </div>
+                <div class="formula-quantity">
+                    <input type="number" class="formula-number" data-action="enter-quantity" value="{{project.batch}}" readonly />
+                </div>
+                {{#if @root.editable}}
+                    <div class="item-controls cco-project-controls">
+                        <a class="item-control" title="{{localize "PF2E.CraftItemTitle"}}" data-action="project-craft"><i class="fa-solid fa-fw fa-hammer"></i></a>
+                        <a class="item-control" title="{{localize "PF2E.EditItemTitle"}}" data-action="project-edit"><i class="fas fa-edit fa-1x fa-fw"></i></a>
+                        <a class="item-control" title="{{localize "PF2E.DeleteItemTitle"}}" data-action="project-delete"><i class="fas fa-fw fa-trash"></i></a>
+                    </div>
+                {{/if}}
+            </li>
+            <div class="cco-project">
+                <span class="cco-project-bar" style="width:{{project.progress}}%"></span>
+                <span class="cco-project-bar-label">{{{localize "PF2E-CCO.CharSheet.Completion" currentlyDone=project.currentlyDone cost=project.cost}}}</span>
+            </div>
+        {{else}}
+            {{#if @root.editable}}
+                <li class="formula-header empty">
+                    <h4>{{localize "PF2E-CCO.CharSheet.Empty"}}</h4>
+                </li>
+            {{/if}}
+        {{/each}}
+    </ol>
+</li>
