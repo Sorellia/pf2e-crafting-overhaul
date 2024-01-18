@@ -4,10 +4,11 @@
 	"description": "A compendium module for my homebrew crafting system overhaul, including feats and actions to replace the base game versions.",
 	"authors": [
 		{
-			"name": "Airwolf"
+			"name": "Airwolf",
+			"url": "https://github.com/Sorellia"
 		}
 	],
-	"version": "1.0",
+	"version": "#{VERSION}#",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "11"
@@ -100,5 +101,11 @@
 			"system": "pf2e",
 			"path": "packs/cco-items"
 		}
-	]
+	],
+	"changelog": "https://github.com/Sorellia/pf2e-crafting-overhaul/blob/main/CHANGELOG.md",
+	"url": "https://github.com/Sorellia/pf2e-crafting-overhaul",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#",
+	"license": "LICENSE",
+	"readme": "README.md"
 }
