@@ -34,7 +34,7 @@ async function getPaymentOptionHTML(preferredDefault = "fullCoin") {
  */
 export async function projectBeginDialog(itemDetails, preferredPayMethod = "fullCoin") {
     const item = await fromUuid(itemDetails.UUID);
-    const maxCost = game.pf2e.Coins.fromPrice(item.price, itemDetails.batchSize || 1);
+    const maxCost = game.pf2e.Coins.fromPrice(item.price, itemDetails.batchSize || 1).scale(0.5);
 
     return await Dialog.wait({
         title: localise("ProjectBeginWindow.Title"),
@@ -359,7 +359,13 @@ export async function projectEditDialog(projectDetails) {
                 icon: "<i class='fa-solid fa-ban'></i>",
             }
         },
-        default: "ok"
+        default: "ok",
+        close: (html) => {
+            return {
+                progressInCopper: projectDetails.progressInCopper,
+                batchSize: projectDetails.batchSize
+            }
+        }
     }, { width: 350 });
 }
 

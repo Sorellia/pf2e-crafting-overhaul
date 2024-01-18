@@ -28,8 +28,8 @@ Hooks.on("renderCharacterSheetPF2e", async (data,html) => {
 		itemControls.prepend(`<a class="item-control" title="${localise("CharSheet.BeginProject")}" data-action="cco-begin-project"><i class="fa-solid fa-fw fa-scroll"></i></a>`);
 		
 		itemControls.find("a[data-action=cco-begin-project]").on("click", async (event) => {
-			const UUID = $(event.currentTarget).parent().parent().attr("data-item-id") || "";
-			const batchSize = Number($(event.currentTarget).parent().siblings(".formula-quantity").children("input").val()) || 1;
+			const UUID = $(event.currentTarget).parent().parent().attr("data-item-uuid") || "";
+			const batchSize = Number($(event.currentTarget).parent().siblings(".quantity").children("input").val()) || 1;
 			const itemDetails = {
 				UUID,
 				batchSize
@@ -40,7 +40,7 @@ Hooks.on("renderCharacterSheetPF2e", async (data,html) => {
 	}
 	{
 		// Adds crafting projects
-		const craftingEntries = craftingTab.find(".craftingEntry-list");
+		const craftingEntries = craftingTab.find(".crafting-entry-list");
 		const projects = await getProjectsToDisplay(data.actor);
 		
 		const template = await renderTemplate(`modules/${MODULE_NAME}/templates/projects.hbs`, { projects, editable: data.isEditable });
@@ -65,7 +65,7 @@ Hooks.on("renderCharacterSheetPF2e", async (data,html) => {
 		projectControls.find("a[data-action=project-craft]").on("click", async (event) => {
 			const projectUUID = $(event.currentTarget).parent().parent().attr("data-project-id") || "";
 			const itemUUID = $(event.currentTarget).parent().parent().attr("data-item-id") || "";
-			const batchSize = Number($(event.currentTarget).parent().siblings(".formulal-quantity").children("input").val()) || 1;
+			const batchSize = Number($(event.currentTarget).parent().siblings(".quantity").children("input").val()) || 1;
 			const itemDetails = {
 				UUID: itemUUID,
 				projectUUID,
@@ -79,7 +79,7 @@ Hooks.on("renderCharacterSheetPF2e", async (data,html) => {
 		// Adds a to-chat rollable button
 		const projects = craftingTab.find("[data-container-type=CCOProjects]").find(".formula-item");
 		
-		projects.find(".rollable").on("click", async (event) => {
+		projects.find(".item-image").on("click", async (event) => {
 			const projectUUID = $(event.currentTarget).parent().attr("data-project-id") || "";
 			
 			await projectToChat(data.actor, projectUUID);
@@ -99,8 +99,8 @@ Hooks.on("renderChatMessage", async (data, html) => {
 			button.parent().parent().attr("data-project-uuid"),
 			button.parent().parent().attr("data-actor")
 		];
-		const actor = game.actors.get(actorID)
-		
+
+		const actor = game.actors.get(actorID);		
 		if (!actor) return;
 		if (!game.user.isGM && !actor.isOwner) return;
 		
